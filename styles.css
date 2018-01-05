@@ -1,10 +1,12 @@
 body {
     text-align: center;
+	background: #000000;
+	color: #ffffff;
 }
 
 h1 {
-    font-family: Monoton;
-    font-size: 70px;
+    font-family: 'VT323', monospace;
+    font-size: 5em;
     margin: 0.2em;
 }
 
@@ -16,10 +18,16 @@ h2:first-of-type {
     margin-top: 0.5em;
 }
 
+.grid-container {
+	display: inline-block;
+	margin: auto;
+	background-color: #ffffff; 
+	border: 1px solid #ffffff;
+}
 table,
 tr,
 td {
-    border: 1px solid black;
+    border: 1px solid #000000;
 }
 
 table {
@@ -28,13 +36,16 @@ table {
 }
 
 tr {
-    height: 20px;
+    height: 15px;
 }
 
 td {
-    width: 20px;
+    width: 15px;
 }
 
 input[type=number] {
-    width: 6em;
+    width: 3em;
+}
+input [type=color] {
+	border: 2px solid #f4eb42;
 }

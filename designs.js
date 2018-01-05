@@ -1,6 +1,7 @@
-/* this version uses only JavaScript. It includes an 'undo' functionality: if the cell already has the chosen color, it will be removed. */
-//declaration of variables used in this code
-let cellStyle, current_color, new_color, x, y, table, row, cell; 
+/* this version uses only JavaScript. It includes an 'undo' functionality: 
+if the cell already has the chosen color, it will be removed when clicked. */
+//declaration of global variables used in this code
+let current_color, new_color, x, y, table, row, cell; 
 // assign table element to variable for convenience 
 table = document.getElementById("pixel_canvas"); 
 /* this function changes the cell color if it is not already that color */
@@ -11,10 +12,11 @@ function hexToRGB(color){
     return 'rgb('+r+', '+g+', '+b+')' ;
   }    
 function changeCellColor() {
-	//cellStyle = window.getComputedStyle(this,"");
-    current_color = this.style.backgroundColor; 
+    	// get current color of clicked cell
+	current_color = this.style.backgroundColor; 
 	// assign new color value from input to variable
 	new_color = hexToRGB(document.getElementById("colorPicker").value);
+	// check if current color is the same; if no, change to new color, if yes, undo color.
 	if(current_color !== new_color){
 		this.style.backgroundColor = new_color;
 	}
@@ -32,10 +34,10 @@ function makeGrid(){
 	while (table.firstChild){
 		table.removeChild(table.firstChild);
 	}
-	for (i=1; i<=x; i++){
+	for (i=1; i<=y; i++){
 		row = document.createElement("tr");
 		table.appendChild(row);
-		for (j=1; j<=y; j++){
+		for (j=1; j<=x; j++){
 			cell = document.createElement("td");
 			row.appendChild(cell);
 		}
