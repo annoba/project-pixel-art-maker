@@ -1,16 +1,18 @@
 /* this version uses only JavaScript. It includes an 'undo' functionality: 
 if the cell already has the chosen color, it will be removed when clicked. */
+
 //declaration of global variables used in this code
 let current_color, new_color, x, y, table, row, cell; 
 // assign table element to variable for convenience 
 table = document.getElementById("pixel_canvas"); 
-/* this function changes the cell color if it is not already that color */
+/* this function changes the color value retrieved from the input button from hex to rgb format */
 function hexToRGB(color){
     var r = parseInt(color.substr(1,2),16);
     var g = parseInt(color.substr(3,2),16);
     var b = parseInt(color.substr(5,2),16);    
     return 'rgb('+r+', '+g+', '+b+')' ;
-  }    
+  };    
+/* this function changes the cell color if it is not already that color */
 function changeCellColor() {
     	// get current color of clicked cell
 	current_color = this.style.backgroundColor; 
@@ -49,7 +51,7 @@ function makeGrid(){
 	for (var i = 0; i < cells.length; i++) {
 		cells[i].addEventListener('click', changeCellColor, false);
 	}
-}
+};
 /* this code listens to the 'submit' event on the input element of the same name, 
 then executes a function to prevent default behaviour and calling the function makegrid() */
 document.getElementById("sizePicker").addEventListener("submit", function(event){
